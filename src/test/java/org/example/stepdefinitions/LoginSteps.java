@@ -30,6 +30,7 @@ public class LoginSteps {
     @When("I click the login button")
     public void i_click_the_login_button() {
         loginPage.clickLogin();
+        System.out.println("in login page");
     }
 
     @Then("I should be redirected to the dashboard")
