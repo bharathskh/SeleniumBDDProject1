@@ -14,7 +14,11 @@ public class LoginSteps {
 
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
+<<<<<<< HEAD
         System.out.ptintln("");
+=======
+        System.out.println("Print");
+>>>>>>> 027c271 (Update LoginSteps.java and synchronize with framework best practices)
         driver.get(System.getProperty("base.url", "https://example.com"));
     }
 
