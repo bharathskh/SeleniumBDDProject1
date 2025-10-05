@@ -14,6 +14,7 @@ public class LoginSteps {
 
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
+        System.out.ptintln("");
         driver.get(System.getProperty("base.url", "https://example.com"));
     }
 
