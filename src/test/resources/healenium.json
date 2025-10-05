@@ -1,0 +1,12 @@
+{
+  "healenium": {
+    "proxy": {
+      "host": "localhost",
+      "port": 7878
+    },
+    "healing": {
+      "enabled": true
+    }
+  }
+}
+

@@ -1,0 +1,48 @@
+version: '3.7'
+services:
+  selenium-hub:
+    image: selenium/hub:4.19.0-20240611
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+  chrome:
+    image: selenium/node-chrome:4.19.0-20240611
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    ports:
+      - "5900:5900"
+  edge:
+    image: selenium/node-edge:4.19.0-20240611
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    ports:
+      - "5901:5900"
+  firefox:
+    image: selenium/node-firefox:4.19.0-20240611
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    ports:
+      - "5902:5900"
+  healenium-proxy:
+    image: healenium/hlm-proxy:3.4.1
+    ports:
+      - "7878:7878"
+    environment:
+      - SPRING_PROFILES_ACTIVE=standalone
+    depends_on:
+      - selenium-hub
+

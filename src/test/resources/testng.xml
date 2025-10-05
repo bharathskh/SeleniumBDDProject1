@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Selenium BDD Suite" parallel="methods" thread-count="4">
+    <listeners>
+        <listener class-name="org.example.utils.RetryListener"/>
+    </listeners>
+    <test name="Login Tests">
+        <classes>
+            <class name="org.example.runners.TestRunner"/>
+        </classes>
+    </test>
+</suite>
